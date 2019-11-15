@@ -11,7 +11,7 @@ Sparkblog is a personal blog website.
 - Backend development
     - Python 3.7
     - Flask
-    - MongoDB
+    - JWT (JSON Web Token)
 
 - Frontend development
     - React.js
