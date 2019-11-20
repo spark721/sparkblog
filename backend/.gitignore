@@ -1,9 +1,5 @@
-#############################################
-##########     Python.gitignore     ##########
-#############################################
 .DS_Store
 .vscode/
-# Pipfile
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -98,15 +94,18 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# celery beat schedule file
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
 
 # Environments
 .env
-.flaskenv
 .venv
 env/
 venv/
