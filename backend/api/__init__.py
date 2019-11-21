@@ -1,5 +1,5 @@
 from flask import Flask
-from .extensions import db
+from .extensions import db, bcrypt
 
 
 def create_app():
@@ -10,5 +10,7 @@ def create_app():
     with app.app_context():
         # initialize extensions
         db.init_app(app)
+        bcrypt.init_app(app)
+        
 
         return app
