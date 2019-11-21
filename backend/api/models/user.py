@@ -11,13 +11,25 @@ user_fields = {
 
 
 class User(db.Model):
+    """Model for user accounts."""
     __tablename__ = 'users'
 
     # define columns
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(), unique=True, nullable=False)
-    password = db.Column(db.String(), nullable=False)
-    created = db.Column(db.DateTime, default=datetime.utcnow)
+    id = db.Column(db.Integer,
+                    primary_key=True)
+    username = db.Column(db.String(),
+                        unique=True,
+                        nullable=False,
+                        index=True)
+    email = db.Column(db.String(),
+                        unique=True,
+                        nullable=False,
+                        index=True)
+    password = db.Column(db.String(),
+                        nullable=False)
+    created = db.Column(db.DateTime,
+                        default=datetime.utcnow
+                        nullable=False)
 
     def __init__(self, username, password, **kwargs):
         super(User, self).__init__(**kwargs)
