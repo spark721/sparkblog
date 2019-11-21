@@ -12,6 +12,11 @@ bpython = "*"
 flask = "*"
 flask-restful = "*"
 python-dotenv = "*"
+psycopg2 = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+flask-jwt = "*"
+flask-bcrypt = "*"
 
 [requires]
 python_version = "3.7"
