@@ -36,7 +36,7 @@ class User(db.Model):
         super(User, self).__init__(**kwargs)
         self.username = username
         self.email = email
-        self.password = bcrypt.generate_password_hash(password).encode('UTF-8')
+        self.password = bcrypt.generate_password_hash(password).decode('UTF-8')
 
     def __repr__(self):
         return f'<User {self.username}>'
