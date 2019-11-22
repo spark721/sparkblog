@@ -1,5 +1,5 @@
 from flask import Flask
-from .extensions import db, bcrypt
+from .extensions import db, bcrypt, migrate
 from .resources.user import user_api_bp
 
 def create_app():
@@ -10,9 +10,10 @@ def create_app():
     # initialize extensions
     db.init_app(app)
     bcrypt.init_app(app)
+    migrate.init_app(app, db)
 
     with app.app_context():
         # register blueprints
         app.register_blueprint(user_api_bp)
-        
+
         return app
