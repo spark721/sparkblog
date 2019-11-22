@@ -29,7 +29,7 @@ class User(db.Model):
     password = db.Column(db.String(),
                         nullable=False)
     created = db.Column(db.DateTime,
-                        default=datetime.utcnow
+                        default=datetime.utcnow,
                         nullable=False)
 
     def __init__(self, username, password, **kwargs):
