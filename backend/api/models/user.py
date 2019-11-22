@@ -32,9 +32,10 @@ class User(db.Model):
                         default=datetime.utcnow,
                         nullable=False)
 
-    def __init__(self, username, password, **kwargs):
+    def __init__(self, username, email, password, **kwargs):
         super(User, self).__init__(**kwargs)
         self.username = username
+        self.email = email
         self.password = bcrypt.generate_password_hash(password).encode('UTF-8')
 
     def __repr__(self):
