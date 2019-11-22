@@ -1,5 +1,6 @@
 from flask_restful import fields
-from ..extensions import db, bcrypt
+# from ..extensions import db, bcrypt
+from api import db, bcrypt
 from datetime import datetime
 
 
