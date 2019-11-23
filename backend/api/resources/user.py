@@ -28,9 +28,14 @@ class UserAPI(Resource):
         db.session.commit()
         return new_user
 
+    @marshal_with(user_fields)
+    @jwt_required()
     def delete(self):
-        """Delete a user account."""
-        return 'UserAPI DELETE method'
+        """Delete the current user account."""
+        db.session.delete(current_identity)
+        db.session.commit()
+        return current_identity
+
 
 
 user_api.add_resource(UserAPI, '/api/user')
