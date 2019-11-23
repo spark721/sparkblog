@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_restful import Resource, Api, marshal_with
+from flask_jwt import jwt_required, current_identity
 from ..models.user import User, user_fields, db
 
 
@@ -9,9 +10,11 @@ user_api = Api(user_api_bp)
 
 class UserAPI(Resource):
     
+    @marshal_with(user_fields)
+    @jwt_required()
     def get(self):
         """Get a single user information."""
-        return 'UserAPI GET method'
+        return current_identity
 
     @marshal_with(user_fields)
     def post(self):
@@ -23,7 +26,6 @@ class UserAPI(Resource):
         )
         db.session.add(new_user)
         db.session.commit()
-
         return new_user
 
     def delete(self):
@@ -31,4 +33,4 @@ class UserAPI(Resource):
         return 'UserAPI DELETE method'
 
 
-user_api.add_resource(UserAPI, '/api/users')
+user_api.add_resource(UserAPI, '/api/user')

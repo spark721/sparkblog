@@ -1,5 +1,5 @@
 from .models.user import User
-from api import db, bcrypt
+from api import bcrypt
 
 
 def authenticate(email, password):

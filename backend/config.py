@@ -9,6 +9,7 @@ class Config():
     
     # authentication
     JWT_AUTH_URL_RULE = '/api/auth'
+    JWT_AUTH_USERNAME_KEY = 'email'
 
     # database
     SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
