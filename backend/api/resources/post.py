@@ -10,7 +10,7 @@ post_api = Api(post_api_bp)
 class PostAPI(Resource):
     
     def get(self):
-        pass
+        return f'PostAPI GET method'
 
 
 post_api.add_resource(PostAPI, '/api/post')
