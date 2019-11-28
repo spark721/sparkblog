@@ -1,6 +1,5 @@
 from flask_restful import fields
-# from ..extensions import db, bcrypt
-from api import db, bcrypt
+from ..extensions import db, bcrypt
 from datetime import datetime
 
 
@@ -28,6 +27,7 @@ class User(db.Model):
                         index=True)
     password = db.Column(db.String(),
                         nullable=False)
+    posts = db.relationship('Post', backref='author', lazy=True)
     created = db.Column(db.DateTime,
                         default=datetime.utcnow,
                         nullable=False)
