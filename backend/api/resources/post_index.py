@@ -4,11 +4,11 @@ from flask_jwt import jwt_required, current_identity
 from ..models.post import Post, post_fields, db
 
 
-post_api_bp = Blueprint('post_api_bp', __name__)
-post_api = Api(post_api_bp)
+postindex_api_bp = Blueprint('postindex_api_bp', __name__)
+postindex_api = Api(postindex_api_bp)
 
 
-class PostAPI(Resource):
+class PostIndexAPI(Resource):
 
     @marshal_with(post_fields)    
     def get(self):
@@ -28,4 +28,4 @@ class PostAPI(Resource):
         return new_post
 
 
-post_api.add_resource(PostAPI, '/api/post')
+postindex_api.add_resource(PostIndexAPI, '/api/posts')
