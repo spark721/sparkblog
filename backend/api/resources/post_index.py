@@ -9,7 +9,7 @@ postindex_api = Api(postindex_api_bp)
 
 
 class PostIndexAPI(Resource):
-
+    """API for a new post and post index."""
     @marshal_with(post_fields)    
     def get(self):
         return Post.query.all()
