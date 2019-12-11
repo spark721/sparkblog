@@ -24,5 +24,6 @@ def create_app():
         app.register_blueprint(user_api_bp)
         app.register_blueprint(userlist_api_bp)
         app.register_blueprint(postindex_api_bp)
+        app.register_blueprint(post_api_bp)
 
         return app
