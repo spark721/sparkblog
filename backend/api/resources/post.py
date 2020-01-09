@@ -14,9 +14,13 @@ class PostAPI(Resource):
     def get(self, id):
         return Post.query.get(id)
 
-    @marshal_with(post_fields)
+    # @marshal_with(post_fields)
+    @jwt_required()
     def delete(self, id):
         post = Post.query.get(id)
+        if post.author_id != current_identity.id:
+            return 'You are not the author', 401
+
         db.session.delete(post)
         db.session.commit()
         return post
