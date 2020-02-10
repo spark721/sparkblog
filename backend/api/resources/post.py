@@ -25,4 +25,13 @@ class PostAPI(Resource):
         db.session.commit()
         return post
 
+    @marshal_with(post_fields)
+    def patch(self, id):
+        post = Post.query.get(id)
+        data = request.get_json()
+        for key in data:
+            setattr(post, key, data[key])
+        db.session.commit()
+        return post
+
 post_api.add_resource(PostAPI, '/api/post/<int:id>')
